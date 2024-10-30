@@ -7,7 +7,11 @@ chatAI::chatAI(QWidget *parent)
 
 	b1 = ui.talkBegin;
 	t1 = ui.text1;
-    connect(b1, &QPushButton::clicked, this, &chatAI::on_button_clicked);
+
+	pages = ui.stackedWidget;       // 实例化 stackedWidget
+	connect(ui.voice, &QPushButton::clicked, this, [this]() { on_stackedWidget_currentChanged(0); }); // 绑定按钮点击事件为切换页面0
+	connect(ui.word, &QPushButton::clicked, this, [this]() { on_stackedWidget_currentChanged(1); });  // 绑定按钮点击事件为切换页面1
+	connect(ui.chatAI, &QPushButton::clicked, this, [this]() { on_stackedWidget_currentChanged(2); }); // 绑定按钮点击事件为切换页面2
 }
 
 chatAI::~chatAI()
@@ -49,8 +53,19 @@ QString test() {
 		Py_Finalize();//调用Py_Finalize，这个根Py_Initialize相对应的。
 	}
 }
-void chatAI::on_button_clicked() {
+void chatAI::on_talkBegin_clicked() {
 	qDebug() << "按钮被点击了"; // 输出调试信息
     QString value = test(); // 调用 test() 函数
-    t1->setText("你啊" + value); // 改变 QTextEdit 的文本内容
+    t1->setText(value); // 改变 QTextEdit 的文本内容
+}
+void chatAI::on_stackedWidget_currentChanged(int index) {
+	if (pages != nullptr) {
+		if (index < pages->count()) pages->setCurrentIndex(index); // 切换到对应页面
+		else {
+			qDebug() << "pages" << index << "为空";
+		}
+	}
+	else {
+		qDebug() << "pages为空";
+	}
 }
