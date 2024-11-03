@@ -20,8 +20,7 @@ QString test() {
 	Py_Initialize();//使用python之前，要调用Py_Initialize();这个函数进行初始化
 	if (!Py_IsInitialized())
 	{
-		printf("初始化失败！");
-		return 0;
+		return "初始化失败！";
 	}
 	else {
 		PyRun_SimpleString("import sys");
@@ -31,30 +30,29 @@ QString test() {
 		PyObject* pModule = NULL;//声明变量
 		PyObject* pFunc = NULL;// 声明变量
 
-		pModule = PyImport_ImportModule("hello");//这里是要调用的文件名hello.py
+		pModule = PyImport_ImportModule("voice_test");//这里是要调用的文件名hello.py
 		if (pModule == NULL)
 		{
 			return "没找到该Python文件";
 		}
 		else {
-			pFunc = PyObject_GetAttrString(pModule, "add");//这里是要调用的函数名
-			PyObject* args = Py_BuildValue("(ii)", 28, 103);//给python函数参数赋值
+			pFunc = PyObject_GetAttrString(pModule, "my_record");//这里是要调用的函数名
+			PyObject* args = Py_BuildValue("(i)", 16000);//给python函数参数赋值
 
 			PyObject* pRet = PyObject_CallObject(pFunc, args);//调用函数
 
-			int res = 0;
-			PyArg_Parse(pRet, "i", &res);//转换返回类型
+			QString res = "null";
+			PyArg_Parse(pRet, "s", &res);//转换返回类型
 
 			qDebug() << "res:" << res;//输出结果
-			QString s = QString::number(res);
-			return s;
+			//QString s = QString::number(res);
+			return res;
 
 		}
 		Py_Finalize();//调用Py_Finalize，这个根Py_Initialize相对应的。
 	}
 }
 void chatAI::on_talkBegin_clicked() {
-	qDebug() << "按钮被点击了"; // 输出调试信息
     QString value = test(); // 调用 test() 函数
     t1->setText(value); // 改变 QTextEdit 的文本内容
 }

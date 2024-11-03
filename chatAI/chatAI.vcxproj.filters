@@ -50,7 +50,7 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="hello.py">
+    <None Include="voice_test.py">
       <Filter>Source Files</Filter>
     </None>
   </ItemGroup>

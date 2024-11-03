@@ -112,7 +112,7 @@
     <ClInclude Include="test1.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="hello.py" />
+    <None Include="voice_test.py" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

@@ -230,7 +230,7 @@ typedef struct{
     int slot;    /* slot id, see below */
     void *pfunc; /* function pointer */
 } PyType_Slot;
-#undef slots
+#undef slots 
 typedef struct{
     const char* name;
     int basicsize;

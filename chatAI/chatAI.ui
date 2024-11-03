@@ -255,24 +255,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
  <resources>
   <include location="chatAI.qrc"/>
  </resources>
- <connections>
-  <connection>
-   <sender>talkBegin</sender>
-   <signal>clicked()</signal>
-   <receiver>chatAIClass</receiver>
-   <slot>on_talkBegin_clicked()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>412</x>
-     <y>461</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>507</x>
-     <y>470</y>
-    </hint>
-   </hints>
-  </connection>
- </connections>
+ <connections/>
  <slots>
   <slot>on_talkBegin_clicked()</slot>
   <slot>on_stackedWidget_currentChange()</slot>
