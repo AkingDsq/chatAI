@@ -3,20 +3,27 @@
 #include <QtWidgets/QMainWindow>
 #include "ui_chatAI.h"
 #include "test1.h"
+#include "Camera.h"
+class Camera;
 
 class chatAI : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    chatAI(QWidget* parent = nullptr); 
+    chatAI(QWidget* parent = nullptr);
     ~chatAI();
 
 private:
-    Ui::chatAIClass ui;
+    Ui::chatAIClass *ui;
+    Camera *camera;
 
     QPushButton *b1 ;
     QTextEdit *t1 ;
+    QPushButton *voice ;
+    QPushButton *word ;
+    QPushButton *chat ;
+    QPushButton *Cv ;
 
     QStackedWidget *pages;     //Ò³ÃæÇÐ»»¿Ø¼þ
 

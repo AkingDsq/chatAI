@@ -1,17 +1,25 @@
-﻿#include "chatAI.h"
+﻿#include "Camera.h"
+#include "chatAI.h"
 
 chatAI::chatAI(QWidget *parent)
     : QMainWindow(parent)
+	, ui(new Ui::chatAIClass)
 {
-    ui.setupUi(this);
+    ui->setupUi(this);
+	camera = new Camera(ui); // 实例化
 
-	b1 = ui.talkBegin;
-	t1 = ui.text1;
+	b1 = ui->talkBegin;
+	t1 = ui->text1;
+	voice = ui->voice;
+	word = ui->word;
+	chat = ui->chatAI;
+	Cv = ui->Cv;
 
-	pages = ui.stackedWidget;       // 实例化 stackedWidget
-	connect(ui.voice, &QPushButton::clicked, this, [this]() { on_stackedWidget_currentChanged(0); }); // 绑定按钮点击事件为切换页面0
-	connect(ui.word, &QPushButton::clicked, this, [this]() { on_stackedWidget_currentChanged(1); });  // 绑定按钮点击事件为切换页面1
-	connect(ui.chatAI, &QPushButton::clicked, this, [this]() { on_stackedWidget_currentChanged(2); }); // 绑定按钮点击事件为切换页面2
+	pages = ui->stackedWidget;       // 实例化 stackedWidget
+	connect(voice, &QPushButton::clicked, this, [this]() { on_stackedWidget_currentChanged(0); }); // 绑定按钮点击事件为切换页面0
+	connect(word, &QPushButton::clicked, this, [this]() { on_stackedWidget_currentChanged(1); });  // 绑定按钮点击事件为切换页面1
+	connect(chat, &QPushButton::clicked, this, [this]() { on_stackedWidget_currentChanged(2); }); // 绑定按钮点击事件为切换页面2
+	connect(Cv, &QPushButton::clicked, this, [this]() { on_stackedWidget_currentChanged(3); }); // 绑定按钮点击事件为开始对话
 }
 
 chatAI::~chatAI()

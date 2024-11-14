@@ -60,17 +60,30 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <IncludePath>$(SolutionDir)opencv4.10\build\include;$(SolutionDir)opencv4.10\build\include\opencv2;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)opencv4.10\build\x64\vc16\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <IncludePath>$(SolutionDir)opencv4.10\build\include;$(SolutionDir)opencv4.10\build\include\opencv2;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)opencv4.10\build\x64\vc16\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>$(SolutionDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)include;$(SolutionDir)opencv4.10\build\include;$(SolutionDir)opencv4.10\build\include\opencv2</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>python311.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(SolutionDir)libs;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opencv_world4100d.lib;python311.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)libs;$(SolutionDir)opencv4.10\build\x64\vc16\lib</AdditionalLibraryDirectories>
     </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Link>
+      <AdditionalDependencies>opencv_world4100.lib;python311.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)libs;$(SolutionDir)opencv4.10\build\x64\vc16\lib</AdditionalLibraryDirectories>
+    </Link>
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(SolutionDir)include;$(SolutionDir)opencv4.10\build\include;$(SolutionDir)opencv4.10\build\include\opencv2</AdditionalIncludeDirectories>
+    </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="Configuration">
     <ClCompile>
@@ -104,10 +117,12 @@
     <QtRcc Include="chatAI.qrc" />
     <QtUic Include="chatAI.ui" />
     <QtMoc Include="chatAI.h" />
+    <ClCompile Include="Camera.cpp" />
     <ClCompile Include="chatAI.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <QtMoc Include="Camera.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="test1.h" />
   </ItemGroup>
