@@ -38,7 +38,9 @@ https://github.com/opencv/opencv/releases
 
 首先找到python的根目录如C:\python，找到include以及libs文件夹，把这两个文件夹复制进项目根目录 
 
-然后打开VS， 在项目 -> 属性 -> C/C++ -> 常规中的附加包涵目录，编辑并加入下列代码 
+然后打开VS， 
+
+在项目 -> 属性 -> C/C++ -> 常规中的附加包涵目录，编辑并加入下列代码 
 
 `$(SolutionDir)include` 
 
@@ -60,6 +62,16 @@ https://github.com/opencv/opencv/releases
 
 ### 注意：opencv4.10需要在项目根目录才可以直接使用下面代码，如果路径不同需要根据具体路径进行修改
 
+首先需要配置系统环境
+
+我的电脑->属性->高级系统设置->环境变量->系统环境->Path，新建一个地址（需要根据opencv4.10的具体地址修改） 
+
+例：E:\git\work\chatAI\chatAI\opencv4.10\build\x64\vc16\bin
+
+![opencv系统环境](https://github.com/AkingDsq/chatAI/blob/master/img/opencv系统环境.png)
+
+然后打开VS，
+
 在项目 -> 属性 -> C/C++ -> 常规中的附加包涵目录，编辑并加入下列代码 
 
 `$(SolutionDir)opencv4.10\build\include` 
@@ -74,6 +86,6 @@ https://github.com/opencv/opencv/releases
 
 `opencv_world4100d.lib`    （debug环境）
 
-`opencv_world4100.lib`      (release环境)
+`opencv_world4100.lib`        (release环境)
 
 # 现在环境就配置完成了。
