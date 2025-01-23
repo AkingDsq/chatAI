@@ -1,4 +1,5 @@
 ﻿#include "Camera.h"
+#include "DeepSeek_API_test.h"
 #include "chatAI.h"
 
 chatAI::chatAI(QWidget *parent)
@@ -7,6 +8,7 @@ chatAI::chatAI(QWidget *parent)
 {
     ui->setupUi(this);
 	camera = new Camera(ui); // 实例化
+	deepSeek_API = new DeepSeek_API_test(ui); // 实例化
 
 	b1 = ui->talkBegin;
 	t1 = ui->text1;

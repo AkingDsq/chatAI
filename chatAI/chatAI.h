@@ -5,6 +5,7 @@
 #include "test1.h"
 #include "Camera.h"
 class Camera;
+class DeepSeek_API_test;
 
 class chatAI : public QMainWindow
 {
@@ -17,6 +18,7 @@ public:
 private:
     Ui::chatAIClass *ui;
     Camera *camera;
+    DeepSeek_API_test *deepSeek_API;
 
     QPushButton *b1 ;
     QTextEdit *t1 ;

@@ -69,10 +69,10 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>$(SolutionDir)include;$(SolutionDir)opencv4.10\build\include;$(SolutionDir)opencv4.10\build\include\opencv2</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)include;$(SolutionDir)opencv4.10\build\include;$(SolutionDir)opencv4.10\build\include\opencv2;$(QTDIR)\include\QtNetwork</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>opencv_world4100d.lib;python311.lib</AdditionalDependencies>
+      <AdditionalDependencies>opencv_world4100d.lib;python311.lib;$(QTDIR)\lib\Qt6Networkd.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(SolutionDir)libs;$(SolutionDir)opencv4.10\build\x64\vc16\lib</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
@@ -119,10 +119,12 @@
     <QtMoc Include="chatAI.h" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="chatAI.cpp" />
+    <ClCompile Include="DeepSeek_API_test.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="Camera.h" />
+    <QtMoc Include="DeepSeek_API_test.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="test1.h" />
   </ItemGroup>

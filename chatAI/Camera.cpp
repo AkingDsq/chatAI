@@ -41,9 +41,9 @@ void Camera::readFarme()
 
     // 加载分类器
     cv::CascadeClassifier faceCascade;
-    faceCascade.load("E:/git/work/chatAI/chatAI/opencv4.10/sources/data/haarcascades/haarcascade_frontalface_default.xml");
+    faceCascade.load("D:/git/work/chatAI/chatAI/opencv4.10/sources/data/haarcascades/haarcascade_frontalface_default.xml");
     cv::CascadeClassifier smile;
-    smile.load("E:/git/work/chatAI/chatAI/opencv4.10/sources/data/haarcascades/haarcascade_smile.xml");
+    smile.load("D:/git/work/chatAI/chatAI/opencv4.10/sources/data/haarcascades/haarcascade_smile.xml");
 
     std::vector<cv::Rect> faces;
     faceCascade.detectMultiScale(gray, faces, 1.05, 40, 0, cv::Size(10, 10));
