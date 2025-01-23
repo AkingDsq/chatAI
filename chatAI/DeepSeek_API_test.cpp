@@ -27,7 +27,7 @@ void DeepSeek_API_test::on_yes_clicked() {
     if (question.isEmpty()) return;
 
     // 从安全位置读取API Key（示例从配置文件读取）
-    QString appPath = "D:/git/work/chatAI/chatAI/x64/Debug";
+    QString appPath = "C:/Users/dsq2/Desktop";
     QSettings settings(appPath + "/config.ini", QSettings::IniFormat);
 
     QString apiKey = settings.value("API/Key").toString();
