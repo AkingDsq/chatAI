@@ -40,7 +40,7 @@ https://github.com/opencv/opencv/releases
 
 然后打开VS， 
 
-在项目 -> 属性 -> C/C++ -> 常规中的附加包涵目录，编辑并加入下列代码 
+在项目 -> 属性 -> C/C++ -> 常规中的附加包含目录，编辑并加入下列代码 
 
 `$(SolutionDir)include` 
 
@@ -72,7 +72,7 @@ https://github.com/opencv/opencv/releases
 
 然后打开VS，
 
-在项目 -> 属性 -> C/C++ -> 常规中的附加包涵目录，编辑并加入下列代码 
+在项目 -> 属性 -> C/C++ -> 常规中的附加包含目录，编辑并加入下列代码 
 
 `$(SolutionDir)opencv4.10\build\include` 
 
@@ -87,5 +87,31 @@ https://github.com/opencv/opencv/releases
 `opencv_world4100d.lib`    （debug环境）
 
 `opencv_world4100.lib`        (release环境)
+
+## AI对话（接入的DeepSeek的API） 
+1. 获取API Key
+注册/登录DeepSeek账号
+访问DeepSeek开发者平台（如https://platform.deepseek.com），完成账号注册或登录。
+创建API Key
+进入控制台或API管理页面。
+找到生成API Key的选项。
+生成后，复制并保存密钥。
+
+2. 在代码中使用API Key
+### VS+Qt配置QNetwork环境
+在Qt中使用这个功能需要使用QNetworkAccessManager，需要配置环境：
+
+在项目 -> 属性 -> C/C++ -> 常规中的附加包含目录，编辑并加入下列代码 
+
+`$(QTDIR)\include\QtNetwork` 
+
+![QNet1](https://github.com/AkingDsq/chatAI/blob/master/img/QNet1.png)
+在项目 -> 属性 -> 链接器 -> 输入中的附加依赖项，编辑并加入下列代码 (注意：debug环境与release不同)(Qt版本不同命名不同)
+
+`$(QTDIR)\lib\Qt6Networkd.lib`    （debug环境）
+
+`$(QTDIR)\lib\Qt6Network.lib`        (release环境)
+
+![QNet2](https://github.com/AkingDsq/chatAI/blob/master/img/QNet2.png)
 
 # 现在环境就配置完成了。
