@@ -78,11 +78,11 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <Link>
-      <AdditionalDependencies>opencv_world4100.lib;python311.lib</AdditionalDependencies>
+      <AdditionalDependencies>opencv_world4100.lib;python311.lib;$(QTDIR)\lib\Qt6Network.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(SolutionDir)libs;$(SolutionDir)opencv4.10\build\x64\vc16\lib</AdditionalLibraryDirectories>
     </Link>
     <ClCompile>
-      <AdditionalIncludeDirectories>$(SolutionDir)include;$(SolutionDir)opencv4.10\build\include;$(SolutionDir)opencv4.10\build\include\opencv2</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)include;$(SolutionDir)opencv4.10\build\include;$(SolutionDir)opencv4.10\build\include\opencv2;$(QTDIR)\include\QtNetwork</AdditionalIncludeDirectories>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="Configuration">
